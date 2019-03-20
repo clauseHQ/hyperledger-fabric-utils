@@ -1,27 +1,24 @@
-# hyperledger-fabric-utils
-Utility code and scripts for Hyperledger Fabric
-
-## Install a Development Hyperledger Fabric in a Microsoft Azure VM
+# Install a Development Hyperledger Fabric in a Microsoft Azure VM
 
 These instructions will allow you to setup your own virtual machine on Microsoft Azure
 with Hyperleger Fabric blockchain with the Clause Audit Trail chaincode running.
 
-### Install the Azure CLI
+## Install the Azure CLI
 
 Following these instructions:
 https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest
 
-### Login to Azure
+## Login to Azure
 
 ```
 az login
 ```
 
-### Deploy Hyperledger Fabric and Audit Trail chaincode
+## Deploy Hyperledger Fabric and Audit Trail chaincode
 
 Run the `azure-deploy.sh` script to deploy HLF to Azure in a VM. The script will take about 10 minutes to complete.
 
-### Copy the Connection Profile JSON
+## Copy the Connection Profile JSON
 
 At the end of the script you should see the connection profile for the Hyperledger Fabric printed. It will look something like this:
 
@@ -81,9 +78,9 @@ At the end of the script you should see the connection profile for the Hyperledg
 }
 ```
 
-Copy this and save it into a file called `connection-profile.json`.
+Copy this and save it into a file called `connection-profile.json`. You will need this file to connect your Clause account to Hyperledger Fabric via the Hyperledger Fabric App.
 
-### Add User to docker group
+## Add User to docker group
 
 Login to your VM using `ssh`. Scroll to the top of the script output and you will see the IP address for your VM.
 
@@ -118,7 +115,7 @@ CONTAINER ID        IMAGE                                                       
 8c39fa795f9a        hyperledger/fabric-couchdb                                                                                 "tini -- /docker-ent…"   15 minutes ago      Up 15 minutes       4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp       couchdb
 ```
 
-### Tail the chaincoe logs
+## Tail the chaincode logs
 
 You can use the `docker logs -f` command to inspect the logs for the audit trail chaincode container. Replace `1804f00188d0` with the id for your chaincode container (printed by `docker ps`).
 
