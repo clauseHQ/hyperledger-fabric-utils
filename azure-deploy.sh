@@ -21,7 +21,7 @@ DOMAIN=$SUBDOMAIN.$LOCATION.cloudapp.azure.com
 az group create --location $LOCATION --name $RESOURCE_GROUP
 
 # # Create a virtual machine
-az vm create -n $VM_NAME -g $RESOURCE_GROUP --image UbuntuLTS
+az vm create -n $VM_NAME -g $RESOURCE_GROUP --image UbuntuLTS --generate-ssh-keys
 
 # VM networking
 az vm open-port -g $RESOURCE_GROUP -n $VM_NAME --port '7050-7054'
